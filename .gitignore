@@ -1,0 +1,15 @@
+# Maven
+target/
+*.class
+
+# IntelliJ
+.idea/
+*.iml
+
+# Environment - NEVER commit tokens
+application-local.yml
+*.env
+
+# OS
+.DS_Store
+Thumbs.db
