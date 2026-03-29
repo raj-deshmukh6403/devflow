@@ -6,9 +6,9 @@ spring:
     name: analytics-service
 
   datasource:
-    url: ${DATABASE_URL}
-    username: ${DB_USERNAME:devflow}
-    password: ${DB_PASSWORD:devflow}
+    url: ${SPRING_DATASOURCE_URL:jdbc:postgresql://localhost:5432/devflow}
+    username: ${SPRING_DATASOURCE_USERNAME:devflow}
+    password: ${SPRING_DATASOURCE_PASSWORD:devflow}
     driver-class-name: org.postgresql.Driver
 
   jpa:
