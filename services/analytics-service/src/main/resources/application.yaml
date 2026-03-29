@@ -1,0 +1,28 @@
+server:
+  port: 8083
+
+spring:
+  application:
+    name: analytics-service
+
+  datasource:
+    url: jdbc:postgresql://localhost:5432/devflow
+    username: devflow
+    password: devflow
+    driver-class-name: org.postgresql.Driver
+
+  jpa:
+    hibernate:
+      ddl-auto: validate
+    show-sql: false
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+
+  jackson:
+    serialization:
+      write-dates-as-timestamps: false
+
+logging:
+  level:
+    com.devflow: DEBUG
