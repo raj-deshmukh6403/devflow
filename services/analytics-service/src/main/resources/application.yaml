@@ -1,14 +1,14 @@
 server:
-  port: 8083
+  port: ${PORT:8083}
 
 spring:
   application:
     name: analytics-service
 
   datasource:
-    url: jdbc:postgresql://localhost:5432/devflow
-    username: devflow
-    password: devflow
+    url: ${DATABASE_URL:jdbc:postgresql://localhost:5432/devflow}
+    username: ${DB_USERNAME:devflow}
+    password: ${DB_PASSWORD:devflow}
     driver-class-name: org.postgresql.Driver
 
   jpa:
@@ -25,4 +25,4 @@ spring:
 
 logging:
   level:
-    com.devflow: DEBUG
+    com.devflow: INFO
