@@ -3,6 +3,7 @@ import { fetchSummary, fetchLeaderboard, fetchAllPRs } from './api/client'
 import StatCard from './components/StatCard'
 import PRTable from './components/PRTable'
 import PRChart from './components/PRChart'
+import AIQueryBox from './components/AIQueryBox'
 
 interface Summary {
   totalPRs: number
@@ -32,7 +33,7 @@ interface PR {
   }
 }
 
-type Tab = 'dashboard' | 'prs' | 'leaderboard'
+type Tab = 'dashboard' | 'prs' | 'leaderboard' | 'ai'
 
 function App() {
   const [summary, setSummary] = useState<Summary | null>(null)
@@ -76,6 +77,7 @@ function App() {
             { id: 'dashboard', label: '📊 Dashboard' },
             { id: 'prs', label: '🔀 Pull Requests' },
             { id: 'leaderboard', label: '🏆 Leaderboard' },
+            { id: 'ai', label: '🤖 Ask AI' },
           ].map((tab) => (
             <button
               key={tab.id}
@@ -162,6 +164,17 @@ function App() {
                 ))}
               </div>
             </div>
+          </div>
+        )}
+
+        {/* AI Tab */}
+        {activeTab === 'ai' && (
+          <div>
+            <div className="mb-6">
+              <h2 className="text-2xl font-bold">Ask AI</h2>
+              <p className="text-gray-400 text-sm mt-1">Ask questions about your engineering team in plain English</p>
+            </div>
+            <AIQueryBox />
           </div>
         )}
 

@@ -54,7 +54,7 @@ public class AIQueryService {
         message2.put("content", userQuestion);
 
         Map<String, Object> body = new HashMap<>();
-        body.put("model", "llama3-8b-8192");
+        body.put("model", "llama-3.1-8b-instant");
         body.put("messages", List.of(message1, message2));
         body.put("max_tokens", 500);
 
