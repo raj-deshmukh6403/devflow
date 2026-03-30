@@ -26,3 +26,7 @@ spring:
 logging:
   level:
     com.devflow: INFO
+
+groq:
+  api:
+    key: ${GROQ_API_KEY:}
