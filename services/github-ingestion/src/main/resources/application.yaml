@@ -1,33 +1,31 @@
 server:
-  port: 8081
+  port: ${PORT:8081}
 
 spring:
   application:
     name: github-ingestion
 
   datasource:
-    url: jdbc:postgresql://localhost:5432/devflow
-    username: devflow
-    password: devflow
+    url: ${SPRING_DATASOURCE_URL:jdbc:postgresql://localhost:5432/devflow}
+    username: ${SPRING_DATASOURCE_USERNAME:devflow}
+    password: ${SPRING_DATASOURCE_PASSWORD:devflow}
     driver-class-name: org.postgresql.Driver
 
   jpa:
     hibernate:
       ddl-auto: validate
-    show-sql: true
+    show-sql: false
     properties:
       hibernate:
         dialect: org.hibernate.dialect.PostgreSQLDialect
-        format_sql: true
 
   jackson:
     serialization:
       write-dates-as-timestamps: false
 
 github:
-  token: YOUR_GITHUB_TOKEN_HERE
+  token: ${GITHUB_TOKEN:YOUR_GITHUB_TOKEN_HERE}
 
 logging:
   level:
-    com.devflow: DEBUG
-    org.hibernate.SQL: DEBUG
+    com.devflow: INFO
